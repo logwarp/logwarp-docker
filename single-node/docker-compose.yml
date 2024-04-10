@@ -1,9 +1,9 @@
 # Wazuh App Copyright (C) 2017, Wazuh Inc. (License GPLv2)
-version: '3.7'
+version: "3.7"
 
 services:
   wazuh.manager:
-    image: viraljain/wazuh-manager:4.4.4
+    image: wazuh/wazuh-manager:4.4.4
     hostname: wazuh.manager
     restart: always
     ports:
@@ -39,7 +39,7 @@ services:
       - ./config/wazuh_cluster/wazuh_manager.conf:/wazuh-config-mount/etc/ossec.conf
 
   wazuh.indexer:
-    image: viraljain/wazuh-indexer:4.4.4
+    image: wazuh/wazuh-indexer:4.4.4
     hostname: wazuh.indexer
     restart: always
     ports:
