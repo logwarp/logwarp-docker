@@ -19,14 +19,14 @@ The folder `multi-node` contains a README explaining how to run a logwarp enviro
 ## Documentation
 
 - [logwarp full documentation](http://documentation.wazuh.com)
-- [Wazuh documentation for Docker](https://documentation.wazuh.com/current/docker/index.html)
+- [logwarp documentation for Docker](https://documentation.wazuh.com/current/docker/index.html)
 - [Docker hub](https://hub.docker.com/u/wazuh)
 
 ### Setup SSL certificate
 
 Before starting the environment it is required to provide an SSL certificate (or just generate one self-signed).
 
-Documentation on how to provide these two can be found at [Wazuh Docker Documentation](https://documentation.wazuh.com/current/docker/wazuh-container.html#production-deployment).
+Documentation on how to provide these two can be found at [logwarp Docker Documentation](https://documentation.wazuh.com/current/docker/wazuh-container.html#production-deployment).
 
 ## Environment Variables
 
@@ -35,13 +35,13 @@ Default values are included when available.
 ### logwarp
 
 ```
-API_USERNAME="logwarp-wui"                            # logwarp API username
-API_PASSWORD="MyS3cr37P450r.*-"                     # logwarp API password - Must comply with requirements
+API_USERNAME="wazuh-wui"                            # Wazuh API username
+API_PASSWORD="MyS3cr37P450r.*-"                     # Wazuh API password - Must comply with requirements
                                                     # (8+ length, uppercase, lowercase, specials chars)
 
 INDEXER_URL=https://wazuh.indexer:9200              # Wazuh indexer URL
-INDEXER_USERNAME=admin                              # logwarp indexer Username
-INDEXER_PASSWORD=SecretPassword                     # logwarp indexer Password
+INDEXER_USERNAME=admin                              # Wazuh indexer Username
+INDEXER_PASSWORD=SecretPassword                     # Wazuh indexer Password
 FILEBEAT_SSL_VERIFICATION_MODE=full                 # Filebeat SSL Verification mode (full or none)
 SSL_CERTIFICATE_AUTHORITIES=""                      # Path of Filebeat SSL CA
 SSL_CERTIFICATE=""                                  # Path of Filebeat SSL Certificate
@@ -54,7 +54,7 @@ SSL_KEY=""                                          # Path of Filebeat SSL Key
 PATTERN="wazuh-alerts-*"        # Default index pattern to use
 
 CHECKS_PATTERN=true             # Defines which checks must to be consider by the healthcheck
-CHECKS_TEMPLATE=true            # step once the Wazuh app starts. Values must to be true or false
+CHECKS_TEMPLATE=true            # step once the logwarp app starts. Values must to be true or false
 CHECKS_API=true
 CHECKS_SETUP=true
 
@@ -80,10 +80,10 @@ IP_IGNORE="[]"                  # List of index patterns to be ignored
 
 DASHBOARD_USERNAME=kibanaserver     # Custom user saved in the dashboard keystore
 DASHBOARD_PASSWORD=kibanaserver     # Custom password saved in the dashboard keystore
-logwarp_MONITORING_ENABLED=true       # Custom settings to enable/disable logwarp-monitoring indices
-logwarp_MONITORING_FREQUENCY=900      # Custom setting to set the frequency for logwarp-monitoring indices cron task
-logwarp_MONITORING_SHARDS=2           # Configure logwarp-monitoring-* indices shards and replicas
-logwarp_MONITORING_REPLICAS=0         ##
+WAZUH_MONITORING_ENABLED=true       # Custom settings to enable/disable logwarp-monitoring indices
+WAZUH_MONITORING_FREQUENCY=900      # Custom setting to set the frequency for logwarp-monitoring indices cron task
+WAZUH_MONITORING_SHARDS=2           # Configure logwarp-monitoring-* indices shards and replicas
+WAZUH_MONITORING_REPLICAS=0         ##
 ```
 
 ## Directory structure
@@ -186,7 +186,8 @@ logwarp_MONITORING_REPLICAS=0         ##
 
 ## Branches
 
-- `stable` branch on correspond to the last logwarp stable version.
+- `master` branch contains the latest code, be aware of possible bugs on this branch.
+- `stable` branch on correspond to the last Wazuh stable version.
 
 ## Compatibility Matrix
 
